@@ -6,8 +6,13 @@ import {QuestionService} from './services/question.service';
 import {FormComponent} from './components/form.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {CommonModule} from '@angular/common';
-import {RouterModule} from '@angular/router';
+import {RouterModule, Routes} from '@angular/router';
 import {SmartFormComponent} from './components/smart-form.component';
+
+const ROUTES: Routes = [
+	{path: 'create', component: SmartFormComponent},
+	{path: 'details', component: SmartFormComponent}
+];
 
 const COMPONENTS = [
 	ListComponent,
@@ -20,7 +25,7 @@ const MODULES = [
 	CommonModule,
 	FormsModule,
 	ReactiveFormsModule,
-	RouterModule
+	RouterModule.forChild(ROUTES)
 ];
 
 @NgModule({
@@ -47,6 +52,8 @@ const MODULES = [
 
 })
 
-export class DynamicFormModule {
+export class DynamicFormsModule {
 
 }
+export class SmartFormsComponent {}
+export class FormsComponent {}

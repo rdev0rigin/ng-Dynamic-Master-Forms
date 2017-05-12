@@ -10,7 +10,7 @@ import {ModelService} from '../../shared/services/model.service';
 import {Subscription} from 'rxjs/Subscription';
 
 @Component({
-	selector: 'form-component',
+	selector: 'smart-form-component',
 	template: `
 	<div *ngIf="dataReady === true" [formGroup]="form">
 		<h1><small>CREATE</small>{{this.twt.viewContext.toUpperCase()}}</h1>

@@ -1,3 +1,0 @@
---webpack-config webpack.mocha.js
---require mocha-test-shim.js
-src/**/*.test.ts

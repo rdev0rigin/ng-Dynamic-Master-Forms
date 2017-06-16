@@ -51,6 +51,6 @@ const MODULES = [
 
 })
 
-export class DynamicFormsModule {
+export class DynamicMasterFormsModule {
 
 }

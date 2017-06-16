@@ -9,8 +9,13 @@ This is an Angular 2+ module is for taking any object that is thrown at it, via 
  
 //Todo Dependencies
  
-//Todo Installation
+  To Install, 
   
+  using NPM
+  ```$xslt
+    npm i --save ng-dynamic-master-forms
+    
+   ```
 //Todo Examples
   
   

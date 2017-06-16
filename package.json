@@ -1,6 +1,6 @@
 {
   "name": "ng-dynamic-master-forms",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "license": "MIT",
   "description": "A dynamic approach to displaying lists and building forms.",
   "scripts": {
@@ -31,18 +31,18 @@
     "rxjs": "^5.0.1",
     "zone.js": "^0.8.5"
   },
-    "dev-dependencies": {
-      "typescript": "^2.2.1",
-      "angular-2-router": "^0.3.4",
-      "css-loader": "^0.27.3",
-      "html-webpack-plugin": "^2.28.0",
-      "node-sass": "^4.5.1",
-      "@types/lodash": "^4.14.65",
-      "@types/mocha": "^2.2.40",
-      "@types/node": "^7.0.28",
-      "chai": "^4.0.2",
-      "jasmine": "^2.6.0",
-      "mocha": "^3.4.2",
-      "sinon": "^2.3.2"
-    }
+  "dev-dependencies": {
+    "typescript": "^2.2.1",
+    "angular-2-router": "^0.3.4",
+    "css-loader": "^0.27.3",
+    "html-webpack-plugin": "^2.28.0",
+    "node-sass": "^4.5.1",
+    "@types/lodash": "^4.14.65",
+    "@types/mocha": "^2.2.40",
+    "@types/node": "^7.0.28",
+    "chai": "^4.0.2",
+    "jasmine": "^2.6.0",
+    "mocha": "^3.4.2",
+    "sinon": "^2.3.2"
+  }
 }

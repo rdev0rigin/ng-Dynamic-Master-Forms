@@ -29,7 +29,7 @@ This is an Angular 2+ module for making forms based off of any object that is th
 //Todo Examples
 > Reusable Componentes
 ```html
-<single-line-text-input-component></single-line-text-input-component>
+<single-line-text-input-component [control]=""></single-line-text-input-component>
 
 ```
 

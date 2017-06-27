@@ -16,42 +16,33 @@ export class FormsService {
 		return key;
 	}
 
-	public ListBuilder(models: any[] = []): List {
+	public ListBuilder(model: {}): List {
 		let list: List;
-			list = this.QuestionsFactory(models);
+			list = this.QuestionsFactory(model);
 			list.controls = this.ControlsFactory(list.questions);
-			list.subLists = this.buildSubLists(list);
+			// list.subLists = this.buildSubLists(list);
 			return list;
 	}
 
-	public QuestionsFactory(models: any[] = []): List {
+	public QuestionsFactory(model: {}): List {
 		let list: List = <List>{};
 			// todo refactor select condition
-			let questions: any[] = [];
-			if(!!models) {
-				list.items = models;
-				for (let model of models) {
-					for (let key of Object.keys(model)) {
-						let question: any = {};
-						let label = this.labelMaker(key, REPLACMENT_LABELS);
-						if (RESTRICTED_KEYS.indexOf(key) === -1) {
-							Object.assign(question, {
-								key: key,
-								label: label[0].toUpperCase() + label.slice(1),
-								required: REQUIRED.indexOf(key) !== -1,
-								value: model[key],
-							});
-							questions.push(question)
-						}
-					}
-					list = Object.assign(list,{questions: questions});
-					questions = [];
-				}
-			} else {
-				//todo error message
-				return list;
+		let questions: any[] = [];
+		for (let key of Object.keys(model)) {
+			let question: any = {};
+			let label = this.labelMaker(key, REPLACMENT_LABELS);
+			if (RESTRICTED_KEYS.indexOf(key) === -1) {
+				Object.assign(question, {
+					key: key,
+					label: label[0].toUpperCase() + label.slice(1),
+					required: REQUIRED.indexOf(key) !== -1,
+					value: model[key],
+				});
+				questions.push(question)
 			}
-			return list;
+		}
+		list = Object.assign(list,{questions: questions});
+		return list;
 	}
 
 	public ControlsFactory(questions: any ): {[name: string]: FormControl} {

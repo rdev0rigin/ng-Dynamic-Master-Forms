@@ -1,8 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {FormGroup} from '@angular/forms';
-import {ToastsManager} from 'ng2-toastr';
-import {SocketService} from '../../shared/services/socket.service';
-import {Router} from '@angular/router';
 
 @Component({
 	selector: 'form-component',
@@ -40,9 +37,6 @@ export class FormComponent implements OnInit {
 	public form: FormGroup;
 	public dataReady: boolean = false;
 	constructor(
-		public toastr: ToastsManager,
-		private socketService: SocketService,
-		private router: Router
 		){}
 
 	public ngOnInit(): void {
@@ -53,15 +47,5 @@ export class FormComponent implements OnInit {
 	public onSubmit(form: any): void {
 			let payload = {props: form};
 			console.log('payload', payload);
-		this.socketService.responseSocket(this.endpoint, payload)
-			.subscribe(response => {
-				if (response.error) {
-					this.toastr.error('Error with creation: ' + response.error);
-				} else {
-					console.log('hit toastr');
-					this.toastr.success('Successfully Created!');
-					this.router.navigate([`/${this.parentContext}`])
-				}
-		})
 	}
 }

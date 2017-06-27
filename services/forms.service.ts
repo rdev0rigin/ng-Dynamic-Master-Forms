@@ -16,16 +16,12 @@ export class FormsService {
 		return key;
 	}
 
-	public ListBuilder(models: any[] = []): Promise<List> {
-		return new Promise((resolve) => {
+	public ListBuilder(models: any[] = []): List {
 		let list: List;
 			list = this.QuestionsFactory(models);
 			list.controls = this.ControlsFactory(list.questions);
 			list.subLists = this.buildSubLists(list);
-			if(list){
-				resolve(list)
-			}
-		})
+			return list;
 	}
 
 	public QuestionsFactory(models: any[] = []): List {

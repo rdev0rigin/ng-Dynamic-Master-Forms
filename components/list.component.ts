@@ -1,5 +1,4 @@
 import {Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges} from '@angular/core';
-import {Capitalize} from '../../shared/pipes/toTitleCase.pipe';
 import {FormGroup} from '@angular/forms';
 import {List} from '../models/lists.model';
 import {BehaviorSubject} from 'rxjs/BehaviorSubject';
@@ -108,7 +107,8 @@ export class ListComponent implements OnInit, OnChanges {
 	public SWIPE_ACTION = {RIGHT: 'swipe-right', LEFT: 'swipe-left'};
 	public xVal: number;
 
-	constructor(public toTitleCase: Capitalize) {};
+	constructor(
+	){};
 
 	public ngOnInit(): void {
 		this.action.emit({type: 'STATE_LIST-COMPONENT_INITIALIZING'});

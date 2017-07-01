@@ -41,6 +41,7 @@ import 'rxjs'
 			justify-content: center;
 		}
 		.undo-button, .redo-button {
+            cursor: pointer;
 			font-size: 28px;
 			font-weight: 500;
 			display: flex;

@@ -29,6 +29,7 @@ import {FormControl} from '@angular/forms';
             color: black;
         }
         .cancel {
+            cursor: pointer;
             font-size: 28px;
             font-weight: 500;
             display: flex;

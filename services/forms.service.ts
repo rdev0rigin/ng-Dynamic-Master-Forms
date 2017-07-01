@@ -29,6 +29,7 @@ export class FormsService {
 					// todo control insert system
 					control: REQUIRED.indexOf(key) !== -1 ? new FormControl(model[key], []) : new FormControl(model[key], [Validators.required]),
 					value: model[key],
+					isActive: false,
 				});
 				list = [...list, question];
 			}

@@ -14,12 +14,14 @@ import {HttpModule} from '@angular/http';
 import {BrowserAnimationsModule, NoopAnimationsModule} from '@angular/platform-browser/animations';
 import {SingleLineTextInputUndoComponent} from './components/single-line-text-input-undo.component';
 import {MultiLineTextInputUndoComponent} from './components/multi-line-text-input-undo.component';
+import {MasterDetailsListComponent} from './components/master-details-list.component';
 
 const ROUTES: Routes = [
 	{path: '', component: DemoComponent}
 ];
 
 const COMPONENTS = [
+	MasterDetailsListComponent,
 	DemoComponent,
 	DemoMainComponent,
 	InputComponent,

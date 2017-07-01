@@ -8,28 +8,42 @@ const DEMO_OBJ = {
 	bar: 'bar',
 	bas: 'bas'
 };
+const DEMO_OBJ_TWO = {
+	name: 'Demo Obj Two',
+	foo: 'foo',
+	pizza: 'Cheese',
+	sammich: 'Grilled Cheese',
+	soda: 'Sprite',
+	bar: 'bar',
+	bas: 'bas'
+};
 
 @Component({
 	selector: 'demo-component',
 	template: `
-		<div [formGroup]="form">
-			<h3>Single Line Input Component</h3>
-				<single-line-text-input-component label="Label" [(model)]="singleText" placeholder="placeholder" [control]="singleDemoControl" ></single-line-text-input-component>
-			<h3>Multi-Line Input</h3>
-				<multi-line-text-input-component label="Label" [(model)]="multiText" placeholder="placeholder" [control]="multiDemoControl" ></multi-line-text-input-component>
-			<h3>Single With Undo</h3>
-			<single-line-text-input-undo-component label="Label" [(model)]="singleUndoText" placeholder="placeholder" [control]="singleDemoControl" ></single-line-text-input-undo-component>
-			<h3>Multi Line with Undo</h3>
-			<multi-line-text-input-undo-component label="Label" [(model)]="multiUndoText" placeholder="placeholder" [control]="multiDemoUndoControl"></multi-line-text-input-undo-component>
-		</div>
-		<h2>Dynamic Form Builder</h2>
-			<form [formGroup]="dynamicForm">
-				<single-line-text-input-component *ngFor="let item of list" [control]="item.control" [model]="item.value" [label]="item.label"></single-line-text-input-component>
-			</form>
+	<h2>Reusable Inputs</h2>
+	<div [formGroup]="form">
+		<h3>Single Line Input Component</h3>
+		<single-line-text-input-component label="Label" [(model)]="singleText" placeholder="placeholder" [control]="singleDemoControl" ></single-line-text-input-component>
+		<h3>Multi-Line Input</h3>
+		<multi-line-text-input-component label="Label" [(model)]="multiText" placeholder="placeholder" [control]="multiDemoControl" ></multi-line-text-input-component>
+		<h3>Single With Undo</h3>
+		<single-line-text-input-undo-component label="Label" [(model)]="singleUndoText" placeholder="placeholder" [control]="singleUndoDemoControl" ></single-line-text-input-undo-component>
+		<h3>Multi Line with Undo</h3>
+		<multi-line-text-input-undo-component label="Label" [(model)]="multiUndoText" placeholder="placeholder" [control]="multiDemoUndoControl"></multi-line-text-input-undo-component>
+	</div>
+	<h2>Dynamic Form Builder</h2>
+	<form [formGroup]="dynamicForm">
+		<single-line-text-input-component *ngFor="let item of list" [control]="item.control" [model]="item.value" [label]="item.label"></single-line-text-input-component>
+	</form>
+	<h2>Dynamic Master Details</h2>
+	<master-details-list-component [items]="[demoObj, demoObjTwo]"></master-details-list-component>
 	`
 })
 
 export class DemoComponent implements OnInit, OnDestroy{
+	public demoObj = DEMO_OBJ;
+	public demoObjTwo= DEMO_OBJ_TWO
 	public list: Question;
 	public singleText = 'This is the Demo Model';
 	public singleUndoText = 'This is the Demo Model';
@@ -51,7 +65,7 @@ export class DemoComponent implements OnInit, OnDestroy{
 		private forms: FormsService
 	){}
 	public ngOnInit(): void {
-		this.list = this.forms.buildList(DEMO_OBJ);
+		this.list = this.forms.buildList(this.demoObj);
 		console.log(this.list);
 		// let controls = {};
 		// Observable.from(this.list).forEach(question => Object.assign(controls, {[question.key]: question.control}));

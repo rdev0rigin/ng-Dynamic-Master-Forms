@@ -46,6 +46,11 @@ constructor(
 ){};
 const QUESTIONS_LIST = this.formService.buildList(MyObject);
 ```  
-//Todo - Dynamic Editable Master Details List
-  
+> Dynamic Editable Master Details List
+This component can be inserted into templates and takes an array of object(s) and will turn it into a master-details list, it will emit an object `(onChanges)` that contains `{objectIndex: number, key: string, value: any}` 
+ 
+ ```html
+	<master-details-list-component [items]="[demoObj, demoObjTwo]" (onChanges)="onChange($event)"></master-details-list-component>
+
+```
  

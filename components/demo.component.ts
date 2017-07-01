@@ -37,7 +37,7 @@ const DEMO_OBJ_TWO = {
 		<single-line-text-input-component *ngFor="let item of list" [control]="item.control" [model]="item.value" [label]="item.label"></single-line-text-input-component>
 	</form>
 	<h2>Dynamic Master Details</h2>
-	<master-details-list-component [items]="[demoObj, demoObjTwo]"></master-details-list-component>
+	<master-details-list-component [items]="[demoObj, demoObjTwo]" (onChanges)="onChange($event)"></master-details-list-component>
 	`
 })
 
@@ -72,6 +72,10 @@ export class DemoComponent implements OnInit, OnDestroy{
 		// this.dynamicForm = new FormGroup(controls);
 	}
 	public ngOnDestroy(): void {}
+
+	public onChange(event): void {
+			console.log(event)
+	}
 }
 
 interface Question {

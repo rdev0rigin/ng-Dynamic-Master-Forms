@@ -1,4 +1,4 @@
-import {Component, Input, OnChanges, SimpleChanges} from '@angular/core';
+import {Component, EventEmitter, Input, OnChanges, Output, SimpleChanges} from '@angular/core';
 import {FormGroup} from '@angular/forms';
 import 'rxjs';
 import {FormsService} from '../services/forms.service';
@@ -6,7 +6,7 @@ import {FormsService} from '../services/forms.service';
 @Component({
 	selector: 'master-details-list-component',
 	template: `		
-		<div class="list" *ngFor="let listFormGroup of lists">
+		<div class="list" *ngFor="let listFormGroup of lists; let i = index">
 			<div class="list-header" (click)="listFormGroup.isActive = !listFormGroup.isActive">{{listFormGroup.list[0].value}}</div>
 			<form [formGroup]="listFormGroup.formGroup">
 				<ul [class.active]="listFormGroup.isActive">
@@ -14,7 +14,7 @@ import {FormsService} from '../services/forms.service';
 						<div class="input-label" *ngIf="!item.isActive" (click)="item.isActive = true">{{item.label}}: {{item.value}}</div>
 						<div class="input-container" *ngIf="item.isActive">
 							<single-line-text-input-component [label]="item.label" [control]="item.control" [(model)]="item.value" ></single-line-text-input-component>
-							<div class="check-mark" (click)="item.isActive = false">✔</div>
+							<div class="check-mark" (click)="item.isActive = false; onChanges.emit({objectIndex: i, key: item.key, value: item.value})">✔</div>
 						</div>
 					</li>
 				</ul>
@@ -66,6 +66,8 @@ import {FormsService} from '../services/forms.service';
 export class MasterDetailsListComponent implements OnChanges{
 	@Input()
 	public items = [];
+	@Output()
+	public onChanges: EventEmitter<string> = new EventEmitter<string>();
 	public lists = [];
 	public questions = [];
 	public form: FormGroup = new FormGroup({});
@@ -85,10 +87,6 @@ export class MasterDetailsListComponent implements OnChanges{
 			})
 
 		}
-	}
-
-	public onClick(itemState) {
-		console.log(itemState);
 	}
 }
 

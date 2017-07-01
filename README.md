@@ -22,6 +22,7 @@ imports: [
 ]    
 ```
 > Reusable Componentes
+
 Each component is autonomous, controls are not needed but can be overwritten.
 ```html
     <single-line-text-input-component label="Label" [(model)]="singleText" placeholder="placeholder" [control]="singleDemoControl" ></single-line-text-input-component>
@@ -32,6 +33,7 @@ Each component is autonomous, controls are not needed but can be overwritten.
 ```
 
 > Form Building Services
+
 The list builder will return an array of each key in the object with initialized controls and properties to help build the input like key and label.
 ```typescript
 const MyObject = {

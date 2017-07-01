@@ -4,29 +4,49 @@ import {FormControl} from '@angular/forms';
 @Component({
 	selector: 'single-line-text-input-component',
 	template: `
-		<div class="row">
-			<div *ngIf="!!label" class="col-xs-3">
+		<div class="wrapper">
+			<div *ngIf="!!label" class="label">
 				<strong>{{label}}</strong>
 			</div>
-			<div class="textarea-wrapper" [ngClass]="{'col-xs-12':!label, 'col-xs-9':!!label}">
-				<textarea rows="1" class="form-control" [formControl]="control"
+			<div class="textarea-wrapper">
+				<input  type="text" rows="1" class="form-control" [formControl]="control"
 						  [(ngModel)]="model" (ngModelChange)="modelChange.emit($event)"
-						  [placeholder]="placeholder" (change)="onChange.emit($event.target.value)"></textarea>
-				<span *ngIf="!!control.dirty" class="icon icon-cancel-circle pull-right" (click)="onCancel()"></span>
+						  [placeholder]="placeholder" (change)="onChange.emit($event.target.value)">
 			</div>
+			<span *ngIf="!!control.dirty" class="cancel" (click)="onCancel()">✖</span>
 		</div>
 	`,
+	styles: [`
+		.wrapper {
+			display: flex;
+			flex-direction: row;
+		}
+		.textarea-wrapper {
+			width: 100%;
+		}
+		.label {
+			font-size: 18px;
+			color: black;
+		}
+		.cancel {
+			font-size: 28px;
+			font-weight: 500;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+		}
+	`]
 })
 
 export class SingleLineTextInputComponent implements OnChanges {
 	@Input()
-	public model: string = '';
+	public model: string;
 	@Input()
 	public placeholder: string = '';
 	@Input()
 	public label: string;
 	@Input()
-	public control: FormControl = new FormControl;
+	public control: FormControl;
 	@Output()
 	public modelChange: EventEmitter<string> = new EventEmitter<string>();
 	@Output()

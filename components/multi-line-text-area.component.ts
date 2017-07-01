@@ -4,18 +4,38 @@ import {FormControl} from '@angular/forms';
 @Component({
 	selector: 'multi-line-text-input-component',
 	template: `
-		<div class="row">
-			<div *ngIf="!!label" class="col-xs-3">
+		<div class="wrapper">
+			<div *ngIf="!!label" class="label">
 				<strong>{{label}}</strong>
 			</div>
-			<div class="textarea-wrapper" [ngClass]="{'col-xs-12':!label, 'col-xs-9':!!label}">
+			<div class="textarea-wrapper">
 				<textarea rows="5" class="form-control" [formControl]="control"
 						  [(ngModel)]="model" (ngModelChange)="modelChange.emit($event)"
 						  [placeholder]="placeholder" (change)="onChange.emit($event.target.value)"></textarea>
-				<span *ngIf="!!control.dirty" class="icon icon-cancel-circle pull-right" (click)="onCancel()"></span>
 			</div>
+				<span *ngIf="!!control.dirty" class="cancel" (click)="onCancel()">✖</span>
 		</div>
 	`,
+	styles: [`
+        .wrapper {
+            display: flex;
+            flex-direction: row;
+        }
+        .textarea-wrapper {
+            width: 100%;
+        }
+        .label {
+            font-size: 18px;
+            color: black;
+        }
+        .cancel {
+            font-size: 28px;
+            font-weight: 500;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+	`]
 })
 
 export class MultiLineTextInputComponent implements OnChanges {

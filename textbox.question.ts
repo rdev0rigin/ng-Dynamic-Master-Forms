@@ -1,4 +1,4 @@
-import {QuestionBase} from './base-question.class';
+import {QuestionBase} from './models/base-question.class';
 
 export class TextboxQuestion extends QuestionBase<string> {
 	public controlType = 'textbox';

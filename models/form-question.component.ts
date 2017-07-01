@@ -1,7 +1,7 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {QuestionBase} from './base-question.class';
 import {FormGroup} from '@angular/forms';
-
+//todo dynamic input types
 @Component({
 	selector: 'fq-question',
 	template: `

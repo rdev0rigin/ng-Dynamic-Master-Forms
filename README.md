@@ -4,7 +4,7 @@ updated 7/1/2017
 <br>
 v1.0.0
 
->This is an Angular 2+ module for making forms from any object given to it. It reads the properties and builds another object with all the model data and initialized controls you would need for an Angular Form. It also has various components that are usefully reusable for building forms manually and some advanced features e.g. time travel and recursive listing. I made this to make my development process easier for big and repetitive form constructions.
+>This is an Angular 2+ module for making forms from any object given to it. It reads the properties and builds another array of questions with object properties and respective values and initialized controls you would need for an Angular Form. It also has various input components that are reusable for building forms manually and implement undo state management (Redux Patterns).
  
  To Install, 
   

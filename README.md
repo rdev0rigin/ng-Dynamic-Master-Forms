@@ -2,9 +2,9 @@
 >by (R)Dev rdev1163@outlook.com
 updated 7/1/2017
 <br>
-v1.0.0
+v 1*
 
->This is an Angular 2+ module for making forms from any object given to it. It reads the properties and builds another array of questions with object properties and respective values and initialized controls you would need for an Angular Form. It also has various input components that are reusable for building forms manually and implement undo state management (Redux Patterns).
+##### This is an Angular 2+ module for making forms from any object given to it. It reads the properties and builds another array of questions with object properties and respective values and initialized controls you would need for an Angular Form. It also has various input components that are reusable for building forms manually and implement undo state management (Redux Patterns).
  
  To Install, 
   
@@ -47,6 +47,7 @@ constructor(
 const QUESTIONS_LIST = this.formService.buildList(MyObject);
 ```  
 > Dynamic Editable Master Details List
+
 This component can be inserted into templates and takes an array of object(s) and will turn it into a master-details list, it will emit an object `(onChanges)` that contains `{objectIndex: number, key: string, value: any}` 
  
  ```html

@@ -10,10 +10,10 @@ const DEMO_OBJ = {
 };
 const DEMO_OBJ_TWO = {
 	name: 'Demo Obj Two',
-	foo: 'foo',
 	pizza: 'Cheese',
 	sammich: 'Grilled Cheese',
 	soda: 'Sprite',
+	foo: 'foo',
 	bar: 'bar',
 	bas: 'bas'
 };
@@ -37,13 +37,30 @@ const DEMO_OBJ_TWO = {
 		<single-line-text-input-component *ngFor="let item of list" [control]="item.control" [model]="item.value" [label]="item.label"></single-line-text-input-component>
 	</form>
 	<h2>Dynamic Master Details</h2>
-	<master-details-list-component [items]="[demoObj, demoObjTwo]" (onChanges)="onChange($event)"></master-details-list-component>
-	`
+	<!--<strong>Build an Object</strong>-->
+	<!--<div class="object-builder" [formGroup]="buildForm">-->
+		<!--<div class="object-builder-input" *ngFor="let prop of buildAnObject">-->
+			<!--<single-line-text-input-component label="key" [(model)]="prop.key"></single-line-text-input-component> : <single-line-text-input-component label="value" [(model)]=""></single-line-text-input-component>-->
+		<!--</div>-->
+		<!--<single-line-text-input-component label="key"></single-line-text-input-component> : <single-line-text-input-component label="value"></single-line-text-input-component>-->
+		<!--<div>Add Another Property</div>-->
+		<!--<div>Update Form With Object</div>-->
+	<!--</div>-->
+	<master-details-list-component [items]="[demoObj, demoObjTwo]" [listsHeaderKey]="'name'" (onChanges)="onChange($event)"></master-details-list-component>
+	`,
+	styles: [`
+		.object-builder .object-builder-input {
+			display: flex;
+			flex-direction: row;
+			justify-content: center;
+		}
+	`]
 })
 
-export class DemoComponent implements OnInit, OnDestroy{
+export class DemoComponent implements OnInit, OnDestroy {
+	public buildAnObject: {[key: string]: string}[] = [{}];
 	public demoObj = DEMO_OBJ;
-	public demoObjTwo= DEMO_OBJ_TWO
+	public demoObjTwo= DEMO_OBJ_TWO;
 	public list: Question;
 	public singleText = 'This is the Demo Model';
 	public singleUndoText = 'This is the Demo Model';

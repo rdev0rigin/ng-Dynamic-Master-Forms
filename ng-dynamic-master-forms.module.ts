@@ -45,9 +45,6 @@ const MODULES = [
 	schemas: [
 		CUSTOM_ELEMENTS_SCHEMA,
 	],
-	bootstrap: [DemoMainComponent],
-	entryComponents: [DemoMainComponent]
-
 
 })
 

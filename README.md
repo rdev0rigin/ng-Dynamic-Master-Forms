@@ -25,10 +25,10 @@ imports: [
 
 Each component is autonomous, controls are not needed but can be overwritten.
 ```html
-    <single-line-text-input-component label="Label" [(model)]="singleText" placeholder="placeholder" [control]="singleDemoControl" ></single-line-text-input-component>
-    <multi-line-text-input-component label="Label" [(model)]="multiText" placeholder="placeholder" [control]="multiDemoControl" ></multi-line-text-input-component>
-    <single-line-text-input-undo-component label="Label" [(model)]="singleUndoText" placeholder="placeholder" [control]="singleDemoControl" ></single-line-text-input-undo-component>
-    <multi-line-text-input-undo-component label="Label" [(model)]="multiUndoText" placeholder="placeholder" [control]="multiDemoUndoControl"></multi-line-text-input-undo-component>
+<single-line-text-input-component label="Label" [(model)]="singleText" placeholder="placeholder" [control]="singleDemoControl" ></single-line-text-input-component>
+<multi-line-text-input-component label="Label" [(model)]="multiText" placeholder="placeholder" [control]="multiDemoControl" ></multi-line-text-input-component>
+<single-line-text-input-undo-component label="Label" [(model)]="singleUndoText" placeholder="placeholder" [control]="singleDemoControl" ></single-line-text-input-undo-component>
+<multi-line-text-input-undo-component label="Label" [(model)]="multiUndoText" placeholder="placeholder" [control]="multiDemoUndoControl"></multi-line-text-input-undo-component>
 
 ```
 
@@ -51,7 +51,7 @@ const QUESTIONS_LIST = this.formService.buildList(MyObject);
 This component can be inserted into templates and takes an array of object(s) and will turn it into a master-details list, it will emit an object `(onChanges)` that contains `{objectIndex: number, key: string, value: any}` 
  
  ```html
-	<master-details-list-component [items]="[demoObj, demoObjTwo]" (onChanges)="onChange($event)"></master-details-list-component>
+<master-details-list-component [items]="[demoObj, demoObjTwo]" (onChanges)="onChange($event)"></master-details-list-component>
 
 ```
  

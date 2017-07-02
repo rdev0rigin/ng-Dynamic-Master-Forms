@@ -29,6 +29,8 @@ import {FormsService} from '../services/forms.service';
 			cursor: pointer;
 			font-size: 18px;
 			font-weight: 500;
+			width: 100%;
+			background: ghostwhite;
 		}
 		ul {
 			list-style: none;
@@ -75,7 +77,8 @@ export class MasterDetailsListComponent implements OnChanges{
 	constructor(private forms: FormsService){}
 
 	public ngOnChanges(simpleChanges: SimpleChanges){
-		if(simpleChanges.items && simpleChanges.items.firstChange){
+		if (simpleChanges.items){
+		// if (simpleChanges.items && simpleChanges.items.firstChange){
 			this.items.forEach(item => {
 				const list = this.forms.buildList(item);
 				let controls = {};
@@ -85,7 +88,6 @@ export class MasterDetailsListComponent implements OnChanges{
 				const listFormGroup: ListFormGroup = {list: list, formGroup: new FormGroup(controls), isActive: false};
 				this.lists = [...this.lists, listFormGroup];
 			})
-
 		}
 	}
 }

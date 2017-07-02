@@ -61,7 +61,7 @@ export class SingleLineTextInputUndoComponent implements OnChanges {
 	@Input()
 	public label: string;
 	@Input()
-	public control: FormControl;
+	public control: FormControl = new FormControl();
 	@Output()
 	public modelChange: EventEmitter<string> = new EventEmitter<string>();
 	@Output()
